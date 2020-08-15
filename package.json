@@ -1,5 +1,5 @@
 {
-  "name": "BuyUp",
+  "name": "buyup",
   "version": "1.0.0",
   "description": "A backend e-commerce site utilizing Express.js API and Sequelize Object-Relational Mapping (ORM) to interact with a MySQL database.",
   "main": "server.js",

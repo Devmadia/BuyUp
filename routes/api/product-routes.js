@@ -14,6 +14,16 @@ router.get('/', (req, res) => {
       'price',
       'stock',
       'category_id'
+    ],
+    include: [
+      {
+        model: Category, 
+        as: 'category'
+      },
+      {
+        model: Tag,
+        as: 'tag'  
+      }
     ]
   })
     .then((productTagIds) => res.status(200).json(productTagIds))
@@ -38,16 +48,14 @@ router.get('/:id', (req, res) => {
       'stock',
       'category_id'
     ],
-    include: [
+     include: [
       {
-        model: Product,
-        attributes: ['id'],
-        through: Category,
-        as: 'category_id'
+        model: Category, 
+        as: 'category'
       },
       {
-        model: Category,
-        // attributes: 
+        model: Tag,
+        as: 'tag'
       }
     ]
   })
@@ -68,7 +76,14 @@ router.post('/', (req, res) => {
       tagIds: [1, 2, 3, 4]
     }
   */
-  Product.create(req.body)
+  Product.create(
+    {
+      product_name: req.body.name,
+      price: 200.00,
+      stock: 3,
+      tagIds: [1, 2, 3, 4]
+    }
+  )
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
       if (req.body.tagIds.length) {
@@ -134,6 +149,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
+
 });
 
 module.exports = router;
