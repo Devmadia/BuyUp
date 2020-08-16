@@ -94,7 +94,7 @@ router.delete('/:id', (req, res) => {
   })
   .then(dbCategoryID => {
     if (!dbCategoryID[0]) {
-      res.status(404).json({ message: 'Category succesffully deleted' });
+      res.status(200).json({ message: 'Category succesffully deleted' });
       return;
     }
     res.json(dbCategoryID);

@@ -75,7 +75,7 @@ router.put('/:id', (req, res) => {
   })
   .then(dbTagID => {
     if (!dbTagID[0]) {
-      res.status(404).json({ message: 'No tag found with this id' });
+      res.status(200).json({ message: 'No tag found with this id' });
       return;
     }
     res.json(dbTagID);
@@ -95,7 +95,7 @@ router.delete('/:id', (req, res) => {
   })
   .then(dbTagID => {
     if (!dbTagID[0]) {
-      res.status(404).json({ message: 'Tag successfully deleted' });
+      res.status(200).json({ message: 'Tag successfully deleted' });
       return;
     }
     res.json(dbTagID);
