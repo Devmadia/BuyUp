@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     include: [
       {
         model: Product, 
-        // as: 'category'
+        as: 'product'
       }
     ]
   })
@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Product, 
-        // as: 'category'
+        as: 'product'
       }
     ]
   })
@@ -94,8 +94,8 @@ router.delete('/:id', (req, res) => {
     }
   })
   .then(dbTagID => {
-    if (!dbTagID) {
-      res.status(404).json({ message: 'No user found with this id' });
+    if (!dbTagID[0]) {
+      res.status(404).json({ message: 'No tag found with this id' });
       return;
     }
     res.json(dbTagID);
