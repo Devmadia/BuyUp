@@ -68,6 +68,13 @@
 
   ![BuyUp Insomnia](assets/images/BuyUpInsomnia.png)
 
+  To close the server, navigate out of Insomnia back to the terminal window and execute the following command:
+
+  > CTRL+C
+  > Y
+
+  This will end the server connection.
+
   ## License
   This project is covered by the MIT license. 
 
