@@ -73,6 +73,7 @@
   To close the server, navigate out of Insomnia back to the terminal window and execute the following command:
 
   > CTRL+C
+  
   > Y
 
   This will end the server connection.
