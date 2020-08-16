@@ -48,10 +48,12 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new category
-  Category.create({
-    id: req.body.id,
-    category_id: req.body.category_id
-  })
+  Category.create(
+    {
+      id: req.body.id,
+      category_name: req.body.category_name
+    }
+  )
   .then(dbCategoryID => res.json(dbCategoryID))
   .catch(err => {
     console.log(err);
@@ -61,9 +63,13 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
-  Category.update(req.body, {
-    where: {
-      id: req.params.id
+  Category.update(
+    {
+      category_name: req.body.category_name
+    }, 
+    {
+      where: {
+        id: req.params.id
     }
   })
   .then(dbCategoryID => {
@@ -81,14 +87,14 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
-  Category.destroy(req.body, {
+  Category.destroy({
     where: {
       id: req.params.id
     }
   })
   .then(dbCategoryID => {
     if (!dbCategoryID[0]) {
-      res.status(404).json({ message: 'No category found with this id' });
+      res.status(404).json({ message: 'Category succesffully deleted' });
       return;
     }
     res.json(dbCategoryID);

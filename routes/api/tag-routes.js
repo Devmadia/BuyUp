@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     include: [
       {
         model: Product, 
-        as: 'product'
+        // as: 'product'
       }
     ]
   })
@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Product, 
-        as: 'product'
+        // as: 'product'
       }
     ]
   })
@@ -57,7 +57,7 @@ router.post('/', (req, res) => {
   // create a new tag
   Tag.create({
     id: req.body.id,
-    tag_id: req.body.tag_id
+    tag_name: req.body.tag_name
   })
   .then(dbTagID => res.json(dbTagID))
   .catch(err => {
@@ -95,7 +95,7 @@ router.delete('/:id', (req, res) => {
   })
   .then(dbTagID => {
     if (!dbTagID[0]) {
-      res.status(404).json({ message: 'No tag found with this id' });
+      res.status(404).json({ message: 'Tag successfully deleted' });
       return;
     }
     res.json(dbTagID);

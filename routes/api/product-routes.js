@@ -18,11 +18,11 @@ router.get('/', (req, res) => {
     include: [
       {
         model: Category, 
-        as: 'category'
+        // as: 'category'
       },
       {
         model: Tag,
-        as: 'tag'  
+        // as: 'tag'  
       }
     ]
   })
@@ -51,11 +51,11 @@ router.get('/:id', (req, res) => {
      include: [
       {
         model: Category, 
-        as: 'category'
+        // as: 'category'
       },
       {
         model: Tag,
-        as: 'tag'
+        // as: 'tag'
       }
     ]
   })
@@ -149,7 +149,7 @@ router.delete('/:id', (req, res) => {
   })
     .then(dbProducts => {
       if (!dbProducts[0]) {
-        res.status(404).json({ message: 'No product found with this id' });
+        res.status(404).json({ message: 'Product successfully deleted' });
         return;
       }
       res.json(dbProducts);
