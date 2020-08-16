@@ -15,6 +15,8 @@
   ![BuyUp Demo GIF](assets/images/BuyUpGIF.gif)
 
   [BuyUp Demonstration Video](https://drive.google.com/file/d/1GcRfSpbkDkOAEBJ__6llkHigS8XB_pLQ/view)
+
+  Video details the full process of creating the database, seeding the database with data from a directory called "seeds", and how to navigate through the different GET/POST/PUT/DELETE routes for "categories", "products", tags" with Insomnia as the API application used to test the routes functionability. 
   
   ## Installation
   Initiate a clone or pull of a project's repo onto your local machine, then change directories through terminal to the BuyUp directory. 
